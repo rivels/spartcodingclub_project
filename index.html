@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            function SpringSearching() {
+                alert('spring')
+            }
+
+            function SummerSearching() {
+                alert('summer')
+            }
+
+            function FallSearching() {
+                alert('fall')
+            }
+
+            function WinterSearching() {
+                alert('winter')
+            }
+        </script>
+    </head>
+    <body>
+        <button type="button" class="btn btn-primary" onclick="SpringSearching()">봄</button>
+        <button type="button" class="btn btn-primary" onclick="SummerSearching()">여름</button>
+        <button type="button" class="btn btn-primary" onclick="FallSearching()">가을</button>
+        <button type="button" class="btn btn-primary" onclick="WinterSearching()">겨울</button>
+
+        <div class="orders">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">이름</th>
+                    <th scope="col">수량</th>
+                    <th scope="col">주소</th>
+                    <th scope="col">전화번호</th>
+                </tr>
+                </thead>
+                <tbody id="orders-box">
+                <tr>
+                    <td>박르탄</td>
+                    <td>3</td>
+                    <td>스파르타국 코딩시 프론트구</td>
+                    <td>010-1234-5678</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</html>
