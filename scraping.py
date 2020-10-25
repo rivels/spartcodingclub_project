@@ -8,7 +8,7 @@ data_Mspring = requests.get('https://www.melon.com/dj/djfinder/djfinder_inform.h
 soup_Mspring = BeautifulSoup(data_Mspring.text, 'html.parser')
 
 #멜론 봄 플레이리스트 이름&이미지가 들어갈 리스트 정의 추후 딕셔너리형태로 바꿔야 될 수도 있을
-melon_playlist_spring_title=melon_playlist_spring_img=[]
+Mspring_title=Mspring_img=[]
 
 '''
 for문이 크롤링 하나당 하나씩 생기는게 아니라,
@@ -19,17 +19,19 @@ for문이 크롤링 하나당 하나씩 생기는게 아니라,
  'melon_spring_img':M_playlist11
  .....
 } 와 같은 형식으로 입력해야할듯
+
+플레이리스트 제목, DJ, 태그, 이미지
 '''
 
 Mlist_spring_title=soup_Mspring.select('#djPlylstList > div > ul > li > div.entry > div.info')
 Mlist_spring_img=soup_Mspring.select('#djPlylstList > div > ul > li > div.thumb > a')
-for i in Mlist_spring_title:
-    M_playlist1=i.select_one('a.ellipsis.album_name').text
-    melon_playlist_spring_title.append(M_playlist1.strip())
-for ii in Mlist_spring_img:
-    M_playlist11=ii.select_one('img')['src']
-    melon_playlist_spring_img.append(M_playlist11)
-print(melon_playlist_spring_title,melon_playlist_spring_img)
+for title in Mlist_spring_title:
+    M_playlist1=title.select_one('a.ellipsis.album_name').text
+    Mspring_title.append(M_playlist1.strip())
+for img in Mlist_spring_img:
+    M_playlist11=img.select_one('img')['src']
+    Mspring_img.append(M_playlist11)
+print(Mspring_title,Mspring_img)
 #melon 여름
 
 
@@ -38,10 +40,10 @@ soup_Msummer = BeautifulSoup(data_Msummer.text, 'html.parser')
 
 melon_playlist_summer=[]
 
-Mlist_summer_title=soup_Msummer.select('#djPlylstList > div > ul > li > div.entry > div.info')
+Msummer_title=soup_Msummer.select('#djPlylstList > div > ul > li > div.entry > div.info')
 
-for j in Mlist_summer_title:
-    M_playlist2 = j.select_one('a.ellipsis.album_name').text
+for summertitle in Msummer_title:
+    M_playlist2 = summertitle.select_one('a.ellipsis.album_name').text
     melon_playlist_summer.append(M_playlist2.strip())
 print(melon_playlist_summer)
 
