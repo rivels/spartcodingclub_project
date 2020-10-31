@@ -170,7 +170,7 @@ for i in Total:
     Gspring_num.append(i.select_one('div.item_info > ul > li.num').text)
     Gspring_doc ={
         "title" : i.select_one('div.item_info > div.title > a').text,
-        "image" : i.select_one('div.item_cover > a.cover > img')['src'],
+        "img" : i.select_one('div.item_cover > a.cover > img')['src'],
         "tag_1" : i.select_one('div.item_info > div.tag > a:nth-child(6)').text,
         "tag_2" : i.select_one('div.item_info > div.tag > a:nth-child(7)').text,
         "num" : i.select_one('div.item_info > ul > li.num').text
@@ -200,7 +200,7 @@ for i in Total:
     Gsummer_num.append(i.select_one('div.item_info > ul > li.num').text)
     Gsummer_doc ={
         "title" : i.select_one('div.item_info > div.title > a').text,
-        "image" : i.select_one('div.item_cover > a.cover > img')['src'],
+        "img" : i.select_one('div.item_cover > a.cover > img')['src'],
         "tag_1" : i.select_one('div.item_info > div.tag > a:nth-child(6)').text,
         "tag_2" : i.select_one('div.item_info > div.tag > a:nth-child(5)').text,
         "num" : i.select_one('div.item_info > ul > li.num').text
@@ -230,7 +230,7 @@ for i in Total:
     Gfall_num.append(i.select_one('div.item_info > ul > li.num').text)
     Gfall_doc ={
         "title" : i.select_one('div.item_info > div.title > a').text,
-        "image" : i.select_one('div.item_cover > a.cover > img')['src'],
+        "img" : i.select_one('div.item_cover > a.cover > img')['src'],
         "tag_1" : i.select_one('div.item_info > div.tag > a:nth-child(6)').text,
         "tag_2" : i.select_one('div.item_info > div.tag > a:nth-child(5)').text,
         "num" : i.select_one('div.item_info > ul > li.num').text
@@ -259,7 +259,7 @@ for i in Total:
     Gwinter_num.append(i.select_one('div.item_info > ul > li.num').text)
     Gwinter_doc ={
         "title" : i.select_one('div.item_info > div.title > a').text,
-        "image" : i.select_one('div.item_cover > a.cover > img')['src'],
+        "img" : i.select_one('div.item_cover > a.cover > img')['src'],
         "tag_1" : i.select_one('div.item_info > div.tag > a:nth-child(6)').text,
         "tag_2" : i.select_one('div.item_info > div.tag > a:nth-child(5)').text,
         "num" : i.select_one('div.item_info > ul > li.num').text

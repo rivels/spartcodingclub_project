@@ -6,9 +6,6 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous">
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
                 integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -16,8 +13,181 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
                 integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
                 crossorigin="anonymous"></script>
+
+        <style>
+            .nav {
+                width: 75%;
+                height: 100%;
+                margin: 0 auto;
+            }
+
+            .list-group {
+                display: inline;
+                width: 200px;
+            }
+
+            .season-btn {
+                display: inline;
+                margin: 0 auto;
+                width: 180px;
+            }
+            .jacket{
+                width: 70px;
+                height : 70px;
+                border-radius: 10px;
+            }
+
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            function springclick() {
+                $('#list-group_1').empty();
+                $('#list-group_2').empty();
+                $('#list-group_3').empty();
+                $.ajax({
+                    type: "GET",
+                    url: "/list",
+                    data: {},
+                    success: function (response) { // 성공하면
+                        if (response["result"] == "success") {
+                            M_list = response["M_playlist"];
+                            G_list = response["G_playlist"];
+                            B_list = response["B_playlist"];
+                            for (i = 0; i < M_list.length; i++) {
+                                M_title = M_list[i]['title'];
+                                M_img = M_list[i]['img'];
+                                M_tag_1 = M_list[i]['tag_1'];
+                                M_tag_2 = M_list[i]['tag_2'];
+                                M_num = M_list[i]['num'];
+                                M_temphtml = `<a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><img class="jacket" src=${M_img}></h5>
+                    <small>${M_num}</small>
+                </div>
+                <p class="mb-1">${M_title}</p>
+                <small>${M_tag_1}</small>
+                <small>${M_tag_2}</small>
+            </a>`
+                                $('#list-group_1').append(M_temphtml);
+
+
+                            }
+
+                        } else {
+                            alert('전송오류')
+                        }
+                    }
+                })
+            }
+
+            function summerclick() {
+
+            }
+
+            function fallclick() {
+
+            }
+
+            function winterclick() {
+
+            }
+
+
+        </script>
     </head>
     <body>
-
+        <div class="nav">
+            <button type="button" class="btn btn-secondary season-btn" onclick="springclick()">Spring</button>
+            <button type="button" class="btn btn-secondary season-btn" onclick="summerclick()">Summer</button>
+            <button type="button" class="btn btn-secondary season-btn" onclick="fallclick()">Fall</button>
+            <button type="button" class="btn btn-secondary season-btn" onclick="winterclick()">Winter</button>
+        </div>
+        <div class="list-group" id="list-group_1">
+            <a href="#" class="list-group-item list-group-item-action active">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                    varius blandit.</p>
+                <small>Donec id elit non mi porta.</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                    varius blandit.</p>
+                <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                    varius blandit.</p>
+                <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
+        </div>
+        <div class="list-group" id="list-group_2">
+            <a href="#" class="list-group-item list-group-item-action active">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                    varius blandit.</p>
+                <small>Donec id elit non mi porta.</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                    varius blandit.</p>
+                <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                    varius blandit.</p>
+                <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
+        </div>
+        <div class="list-group" id="list-group_3">
+            <a href="#" class="list-group-item list-group-item-action active">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small>3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                    varius blandit.</p>
+                <small>Donec id elit non mi porta.</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                    varius blandit.</p>
+                <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">List group item heading</h5>
+                    <small class="text-muted">3 days ago</small>
+                </div>
+                <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus
+                    varius blandit.</p>
+                <small class="text-muted">Donec id elit non mi porta.</small>
+            </a>
+        </div>
     </body>
 </html>
